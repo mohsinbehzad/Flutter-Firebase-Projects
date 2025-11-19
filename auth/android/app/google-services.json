@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "394246049460",
+    "project_id": "auth-eb2cf",
+    "storage_bucket": "auth-eb2cf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394246049460:android:b75fd555bed44f125a11e1",
+        "android_client_info": {
+          "package_name": "com.example.auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHuwHlOUvBop67VngaltNBjxXxbdRpMQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
