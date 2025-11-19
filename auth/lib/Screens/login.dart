@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -8,8 +9,15 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: EdgeInsets.all(14),
                 child: TextField(
-                  controller: emailController,
+                  controller: _emailController,
                   decoration: InputDecoration(
                     labelText: 'Enter Email',
                     labelStyle: TextStyle(color: Colors.deepPurple),
@@ -84,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: EdgeInsets.all(14),
                 child: TextField(
                   obscureText: true,
-                  controller: passwordController,
+                  controller: _passwordController,
                   decoration: InputDecoration(
                     labelText: 'Enter Password',
                     labelStyle: TextStyle(color: Colors.deepPurple),
@@ -108,19 +116,22 @@ class _LoginScreenState extends State<LoginScreen> {
               // button
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 35.0),
-                child: Container(
-                  padding: EdgeInsets.all(18),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 239, 92, 217),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 67, 17, 205),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                child: GestureDetector(
+                  onTap: signIn,
+                  child: Container(
+                    padding: EdgeInsets.all(18),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 239, 92, 217),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(
+                          color: const Color.fromARGB(255, 67, 17, 205),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
