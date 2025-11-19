@@ -14,8 +14,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Home")),
-      body: Center(child: Text("Signed in as: ${user.email!}", style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),),
-      
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Signed in as: ${user.email!}",
+              style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+            ),
+            MaterialButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+              },
+              color: Colors.deepPurpleAccent,
+              child: Text("Sign Out", style: TextStyle(color: Colors.white),),
+            ),
+          ],
+        ),
       ),
     );
   }
