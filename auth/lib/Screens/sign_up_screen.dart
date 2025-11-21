@@ -1,6 +1,9 @@
+import 'package:auth/Screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
+  static route() =>
+      MaterialPageRoute(builder: (context) => const SignUpScreen());
   const SignUpScreen({super.key});
 
   @override
@@ -51,7 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
 
-                SizedBox(height: 10),
+                SizedBox(height: 5),
 
                 Text(
                   "Let's Build Your Account",
@@ -109,30 +112,54 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 SizedBox(height: 15),
 
-                SizedBox(
-                  // width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(
-                        const Color.fromARGB(255, 239, 92, 217),
-                      ),
-                      foregroundColor: WidgetStateProperty.all(
-                        const Color.fromARGB(255, 67, 17, 205),
-                      ),
-                      minimumSize: WidgetStateProperty.all(
-                        Size(200, 60), // width & height
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.all(
+                      const Color.fromARGB(255, 239, 92, 217),
+                    ),
+                    foregroundColor: WidgetStateProperty.all(
+                      const Color.fromARGB(255, 67, 17, 205),
+                    ),
+                    minimumSize: WidgetStateProperty.all(
+                      Size(150, 50), // width & height
+                    ),
+                  ),
+
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+
+                SizedBox(height: 10),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already have an account?',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
                       ),
                     ),
 
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                    SizedBox(width: 5),
+
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, LoginScreen.route());
+                      },
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(255, 177, 51, 93),
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),

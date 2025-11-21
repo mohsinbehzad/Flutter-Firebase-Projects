@@ -1,7 +1,9 @@
+import 'package:auth/Screens/sign_up_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  static route() => MaterialPageRoute(builder: (context) => LoginScreen());
   const LoginScreen({super.key});
 
   @override
@@ -25,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _passwordController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,11 +160,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     SizedBox(width: 5),
-                    Text(
-                      'Register Now',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 177, 51, 93),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, SignUpScreen.route());
+                      },
+                      child: Text(
+                        'Register Now',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(255, 177, 51, 93),
+                          
+                        ),
                       ),
                     ),
                   ],
