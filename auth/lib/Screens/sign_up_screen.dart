@@ -31,7 +31,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
             key: formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.account_circle, size: 50)],
+              children: [
+                Icon(
+                  Icons.account_circle,
+                  size: 100,
+                  color: const Color.fromARGB(255, 228, 57, 114),
+                ),
+                Text(
+                  'Welcome ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: Colors.deepPurpleAccent,
+                  ),
+                ),
+                Text(
+                  "Let's Build Your Account",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 177, 51, 93),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
