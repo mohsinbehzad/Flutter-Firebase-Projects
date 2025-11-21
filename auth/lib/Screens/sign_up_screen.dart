@@ -106,6 +106,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   obscureText: true,
                 ),
+
+                SizedBox(height: 15),
+
+                SizedBox(
+                  // width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(
+                        const Color.fromARGB(255, 239, 92, 217),
+                      ),
+                      foregroundColor: WidgetStateProperty.all(
+                        const Color.fromARGB(255, 67, 17, 205),
+                      ),
+                      minimumSize: WidgetStateProperty.all(
+                        Size(200, 60), // width & height
+                      ),
+                    ),
+
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
