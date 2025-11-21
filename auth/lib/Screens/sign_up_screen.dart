@@ -9,6 +9,8 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   size: 100,
                   color: const Color.fromARGB(255, 228, 57, 114),
                 ),
+
+                SizedBox(height: 15),
+
                 Text(
                   'Welcome ',
                   style: TextStyle(
@@ -45,6 +50,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     color: Colors.deepPurpleAccent,
                   ),
                 ),
+
+                SizedBox(height: 10),
+
                 Text(
                   "Let's Build Your Account",
                   style: TextStyle(
@@ -52,6 +60,51 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     fontSize: 18,
                     color: Color.fromARGB(255, 177, 51, 93),
                   ),
+                ),
+
+                SizedBox(height: 20),
+
+                TextFormField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    labelStyle: TextStyle(color: Colors.deepPurple),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(13)),
+                      borderSide: BorderSide(
+                        color: const Color.fromARGB(255, 152, 23, 66),
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(13)),
+                      borderSide: BorderSide(color: Colors.pinkAccent),
+                    ),
+                    fillColor: const Color.fromARGB(255, 197, 181, 186),
+                    filled: true,
+                    hintText: 'Enter Email',
+                  ),
+                ),
+
+                SizedBox(height: 20),
+
+                TextFormField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    labelStyle: TextStyle(color: Colors.deepPurple),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(13)),
+                      borderSide: BorderSide(
+                        color: const Color.fromARGB(255, 152, 23, 66),
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(13)),
+                      borderSide: BorderSide(color: Colors.pinkAccent),
+                    ),
+                    fillColor: const Color.fromARGB(255, 197, 181, 186),
+                    filled: true,
+                    hintText: 'Enter Password',
+                  ),
+                  obscureText: true,
                 ),
               ],
             ),
