@@ -8,6 +8,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +23,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
         ),
         backgroundColor: const Color.fromARGB(171, 209, 46, 227),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Center(
+          child: Form(
+            key: formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Icon(Icons.account_circle, size: 50)],
+            ),
+          ),
+        ),
       ),
     );
   }
