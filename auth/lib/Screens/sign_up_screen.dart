@@ -1,4 +1,6 @@
+import 'package:auth/Screens/home_screen.dart';
 import 'package:auth/Screens/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -22,7 +24,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
     super.dispose();
   }
 
-  
+  Future<void> createUserWithEmailAndPassword() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.message.toString()),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +143,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(height: 15),
 
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    createUserWithEmailAndPassword();
+                  },
                   style: ButtonStyle(
                     backgroundColor: WidgetStateProperty.all(
                       const Color.fromARGB(255, 239, 92, 217),
