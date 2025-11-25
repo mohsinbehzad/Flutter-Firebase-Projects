@@ -1,3 +1,4 @@
+import 'package:auth/Screens/add_user_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final user = FirebaseAuth.instance.currentUser!;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +20,27 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddUserScreen()),
+                );
+                
+              },
+              style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.all(
+                      const Color.fromARGB(255, 239, 92, 217),
+                    ),
+                    foregroundColor: WidgetStateProperty.all(
+                      const Color.fromARGB(255, 67, 17, 205),
+                    ),
+                    minimumSize: WidgetStateProperty.all(
+                      Size(150, 50), // width & height
+                    ),
+                  ),
+              child: Text('Add User'),
+            ),
             Text(
               "Signed in as: ${user.email!}",
               style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
@@ -27,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 FirebaseAuth.instance.signOut();
               },
               color: Colors.deepPurpleAccent,
-              child: Text("Sign Out", style: TextStyle(color: Colors.white),),
+              child: Text("Sign Out", style: TextStyle(color: Colors.white)),
             ),
           ],
         ),
