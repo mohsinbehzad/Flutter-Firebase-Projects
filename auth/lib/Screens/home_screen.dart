@@ -1,4 +1,5 @@
 import 'package:auth/Screens/add_user_screen.dart';
+import 'package:auth/Screens/user_list_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -26,21 +27,42 @@ class _HomeScreenState extends State<HomeScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => AddUserScreen()),
                 );
-                
               },
               style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(
-                      const Color.fromARGB(255, 239, 92, 217),
-                    ),
-                    foregroundColor: WidgetStateProperty.all(
-                      const Color.fromARGB(255, 67, 17, 205),
-                    ),
-                    minimumSize: WidgetStateProperty.all(
-                      Size(150, 50), // width & height
-                    ),
-                  ),
+                backgroundColor: WidgetStateProperty.all(
+                  const Color.fromARGB(255, 239, 92, 217),
+                ),
+                foregroundColor: WidgetStateProperty.all(
+                  const Color.fromARGB(255, 67, 17, 205),
+                ),
+                minimumSize: WidgetStateProperty.all(
+                  Size(150, 50), // width & height
+                ),
+              ),
               child: Text('Add User'),
             ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UserListScreen()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(
+                  const Color.fromARGB(255, 239, 92, 217),
+                ),
+                foregroundColor: WidgetStateProperty.all(
+                  const Color.fromARGB(255, 67, 17, 205),
+                ),
+                minimumSize: WidgetStateProperty.all(
+                  Size(150, 50), // width & height
+                ),
+              ),
+              child: Text("View Users"),
+            ),
+            SizedBox(height: 20),
             Text(
               "Signed in as: ${user.email!}",
               style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
