@@ -101,9 +101,10 @@ class _AddUserScreenState extends State<AddUserScreen> {
                 dbRef.push().set({
                   "name": nameController.text,
                   "email": emailController.text,
+                  "age": ageController.text,
                 });
 
-                Navigator.pop(context); // Go back to Home
+                Navigator.pop(context); 
               },
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all(
@@ -113,7 +114,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
                   const Color.fromARGB(255, 67, 17, 205),
                 ),
                 minimumSize: WidgetStateProperty.all(
-                  Size(150, 50), // width & height
+                  Size(150, 50), 
                 ),
               ),
               child: Text("Add User"),
