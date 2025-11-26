@@ -54,10 +54,10 @@ class _UserListScreenState extends State<UserListScreen> {
                   ),
                 ),
                 subtitle: Text(
-                  user["email"],
+                  "${user["email"]}\nAge: ${user["age"]}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: 16,
                     color: Color.fromARGB(255, 177, 51, 93),
                   ),
                 ),
@@ -72,6 +72,9 @@ class _UserListScreenState extends State<UserListScreen> {
                         );
                         final emailEdit = TextEditingController(
                           text: user["email"],
+                        );
+                        final ageEdit = TextEditingController(
+                          text: user["age"],
                         );
 
                         showDialog(
@@ -111,6 +114,14 @@ class _UserListScreenState extends State<UserListScreen> {
                                     color: Color.fromARGB(255, 177, 51, 93),
                                   ),
                                 ),
+                                TextField(
+                                  controller: ageEdit,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: Color.fromARGB(255, 177, 51, 93),
+                                  ),
+                                ),
                               ],
                             ),
                             actions: [
@@ -123,6 +134,7 @@ class _UserListScreenState extends State<UserListScreen> {
                                   dbRef.child(userId).update({
                                     "name": nameEdit.text,
                                     "email": emailEdit.text,
+                                    "age": ageEdit.text,
                                   });
 
                                   Navigator.pop(context);

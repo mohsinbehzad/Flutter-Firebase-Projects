@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color.fromARGB(255, 230, 183, 225),
       appBar: AppBar(
         title: Text(
-          'SignUp Screen',
+          'Home Screen',
           style: TextStyle(
             color: const Color.fromARGB(255, 96, 18, 230),
             fontWeight: FontWeight.bold,
