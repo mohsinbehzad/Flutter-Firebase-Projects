@@ -16,7 +16,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
+      backgroundColor: Color.fromARGB(255, 230, 183, 225),
+      appBar: AppBar(
+        title: Text(
+          'SignUp Screen',
+          style: TextStyle(
+            color: const Color.fromARGB(255, 96, 18, 230),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(171, 209, 46, 227),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,9 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 foregroundColor: WidgetStateProperty.all(
                   const Color.fromARGB(255, 67, 17, 205),
                 ),
-                minimumSize: WidgetStateProperty.all(
-                  Size(150, 50), // width & height
-                ),
+                minimumSize: WidgetStateProperty.all(Size(150, 50)),
               ),
               child: Text('Add User'),
             ),
@@ -56,9 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 foregroundColor: WidgetStateProperty.all(
                   const Color.fromARGB(255, 67, 17, 205),
                 ),
-                minimumSize: WidgetStateProperty.all(
-                  Size(150, 50), // width & height
-                ),
+                minimumSize: WidgetStateProperty.all(Size(150, 50)),
               ),
               child: Text("View Users"),
             ),
