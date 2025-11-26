@@ -31,6 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         password: _passwordController.text.trim(),
       );
 
+      if (!mounted) return;
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),
@@ -153,9 +154,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     foregroundColor: WidgetStateProperty.all(
                       const Color.fromARGB(255, 67, 17, 205),
                     ),
-                    minimumSize: WidgetStateProperty.all(
-                      Size(150, 50), // width & height
-                    ),
+                    minimumSize: WidgetStateProperty.all(Size(150, 50)),
                   ),
 
                   child: Text(
